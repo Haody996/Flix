@@ -16,6 +16,7 @@ class MovieDetailsViewController: UIViewController {
 
     @IBOutlet weak var synophsisLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+
     
     var movie: [String:Any]!
     override func viewDidLoad() {
@@ -34,18 +35,18 @@ class MovieDetailsViewController: UIViewController {
         let backdropPath = movie["backdrop_path"] as! String
         let backdropUrl = URL(string:"https://image.tmdb.org/t/p/w780"+backdropPath)
         backdropView.af.setImage(withURL: backdropUrl!)
-        
+
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        // Pass the selected object to the new view controller
+        
+        
+        let webViewController = segue.destination as! TrailerWebView
+        webViewController.movie = movie
     }
-    */
 
 }
